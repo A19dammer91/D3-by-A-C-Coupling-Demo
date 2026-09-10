@@ -8,11 +8,11 @@
 
 **D³** stands for the three D's at the core of the pattern:
 
-- **D**eterministic — for any input N, the decomposition is fully determined; no randomness, no ambiguity, the result is always the same.
-- **D**ata — the pattern operates on any integer-valued data (amounts, quantities, counts), not just currency.
-- **D**ecomposition — N is broken down into a fixed set of structural layers via a greedy algorithm, reducing it to a single anchor value A₀ = dr(N).
+- **D**eterministic: for any input N, the decomposition is fully determined. No randomness, no ambiguity, the result is always the same.
+- **D**ata: the pattern operates on any integer-valued data (amounts, quantities, counts), not just currency.
+- **D**ecomposition: N is broken down into a fixed set of structural layers via a greedy algorithm, reducing it to a single anchor value A₀ = dr(N).
 
-Combined with **A-C Coupling** — the relationship between the anchor value A₀ and the coefficient set C = [19, 9, 3, 3, 1] governing how N splits across layers — this defines a deterministic, O(1) method for representing any amount as a structured combination of denominations.
+Combined with **A-C Coupling** (the relationship between the anchor value A₀ and the coefficient set C = [19, 9, 3, 3, 1] governing how N splits across layers), this defines a deterministic, O(1) method for representing any amount as a structured combination of denominations.
 
 This demo validates the pattern on the Euro currency system.
 
@@ -24,7 +24,7 @@ The system splits any amount N into five structural layers, each governed by its
 
 ![Layer structure](./assets/layer-structure.svg)
 
-For any N, repeatedly summing digits reduces it to a single anchor value — computable directly in O(1) as A₀ = N mod 9:
+For any N, repeatedly summing digits reduces it to a single anchor value, computable directly in O(1) as A₀ = N mod 9:
 
 ![Reduction chain](./assets/reduction-chain.svg)
 
@@ -43,11 +43,11 @@ Input: **€18,00**
 
 | Layer | Coefficient | Result |
 |---|---|---|
-| A | 19 | — |
+| A | 19 | none |
 | B | 9 | 1 × €10 |
 | C | 3 | 1 × €5, 1 × €2, 1 × €1 |
-| D | 3 | — |
-| E | 1 | — |
+| D | 3 | none |
+| E | 1 | none |
 
 A₀ = N mod 9, computed directly without iterating the greedy breakdown.
 
