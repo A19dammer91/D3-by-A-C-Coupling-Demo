@@ -37,9 +37,9 @@ For any amount N, the demo calculates:
 - Total number of payment ways
 - Full reduction chain from N to dr(N)
 
-## Example
+## Examples
 
-Input: **€18,00**
+**€18,00** (1800 cents)
 
 | Layer | Coefficient | Result |
 |---|---|---|
@@ -50,6 +50,42 @@ Input: **€18,00**
 | E | 1 | none |
 
 A₀ = N mod 9, computed directly without iterating the greedy breakdown.
+
+**€0,07** (7 cents)
+
+| Layer | Coefficient | Result |
+|---|---|---|
+| A | 19 | none |
+| B | 9 | none |
+| C | 3 | none |
+| D | 3 | none |
+| E | 1 | 1 × €0,05, 1 × €0,02 |
+
+A small amount still resolves through the same five layers. Most stay empty; only the innermost layer is used.
+
+**€271,34** (27134 cents)
+
+| Layer | Coefficient | Result |
+|---|---|---|
+| A | 19 | 1 × €200 |
+| B | 9 | 1 × €50, 1 × €20 |
+| C | 3 | 1 × €1 |
+| D | 3 | 1 × €0,20, 1 × €0,10 |
+| E | 1 | 2 × €0,02 |
+
+A larger, uneven amount uses all five layers at once, each resolved independently.
+
+**€1.000.000,00** (100 000 000 cents)
+
+| Layer | Coefficient | Result |
+|---|---|---|
+| A | 19 | 2 000 × €500 |
+| B | 9 | none |
+| C | 3 | none |
+| D | 3 | none |
+| E | 1 | none |
+
+Even at large scale, the decomposition stays deterministic and resolves in constant time. Above €100.000 the total payment ways figure switches from an exact count to an asymptotic estimate. The decomposition itself stays exact regardless of size.
 
 ## How to use
 
