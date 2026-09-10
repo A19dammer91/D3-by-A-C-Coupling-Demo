@@ -1,21 +1,86 @@
-# D³ · A₀ = dr(N)
-**Deterministic Data Decomposition by A-C Coupling**
+![License](https://img.shields.io/badge/license-Apache--2.0-blue)
+![Live Demo](https://img.shields.io/badge/demo-live-00e5a0)
+![Complexity](https://img.shields.io/badge/decomposition-O(1)-7b61ff)
 
-Interactive demo of the D³ pattern applied to the 15-denomination Euro currency system.
+# D³ · Deterministic Data Decomposition by A-C Coupling
 
-For any amount N, the demo computes:
+### 🔗 [Try the live demo](https://a19dammer91.github.io/D3-by-A-C-Coupling-Demo/)
+
+**D³** stands for the three D's at the core of the pattern:
+
+- **D**eterministic — for any input N, the decomposition is fully determined; no randomness, no ambiguity, the result is always the same.
+- **D**ata — the pattern operates on any integer-valued data (amounts, quantities, counts), not just currency.
+- **D**ecomposition — N is broken down into a fixed set of structural layers via a greedy algorithm, reducing it to a single anchor value A₀ = dr(N).
+
+Combined with **A-C Coupling** — the relationship between the anchor value A₀ and the coefficient set C = [19, 9, 3, 3, 1] governing how N splits across layers — this defines a deterministic, O(1) method for representing any amount as a structured combination of denominations.
+
+This demo validates the pattern on the Euro currency system.
+
+---
+
+## How it works
+
+The system splits any amount N into five structural layers, each governed by its own coefficient:
+
+![Layer structure](./assets/layer-structure.svg)
+
+For any N, repeatedly summing digits reduces it to a single anchor value — computable directly in O(1) as A₀ = N mod 9:
+
+![Reduction chain](./assets/reduction-chain.svg)
+
+## What the demo computes
+
+For any amount N, the demo calculates:
+
 - Control value A₀ = N mod 9 = dr(N)
-- Optimal greedy decomposition across 5 structural layers C = [19, 9, 3, 3, 1]
+- Optimal greedy decomposition across the 5 structural layers, C = [19, 9, 3, 3, 1]
 - Total number of payment ways
 - Full reduction chain from N to dr(N)
 
+## Example
+
+Input: **€18,00**
+
+| Layer | Coefficient | Result |
+|---|---|---|
+| A | 19 | — |
+| B | 9 | 1 × €10 |
+| C | 3 | 1 × €5, 1 × €2, 1 × €1 |
+| D | 3 | — |
+| E | 1 | — |
+
+A₀ = N mod 9, computed directly without iterating the greedy breakdown.
+
 ## How to use
-Open `index.html` in any browser. No server, no dependencies, no installation.
+
+Open [the live demo](https://a19dammer91.github.io/D3-by-A-C-Coupling-Demo/), or run it locally:
+
+```bash
+git clone https://github.com/A19dammer91/D3-by-A-C-Coupling-Demo.git
+cd D3-by-A-C-Coupling-Demo
+open index.html   # or just double-click it
+```
+
+No server, no dependencies, no installation.
 
 ## Reference
+
 The D³ Pattern: Deterministic Data Decomposition by A-C Coupling (2026)
 Zenodo: https://doi.org/10.5281/zenodo.20819940
 Academia: https://www.academia.edu/resource/work/169064537
 
+### Cite this work
+
+```bibtex
+@misc{d3pattern2026,
+  title  = {The D3 Pattern: Deterministic Data Decomposition by A-C Coupling},
+  author = {El Issaoui, Bilal},
+  year   = {2026},
+  doi    = {10.5281/zenodo.20819940},
+  url    = {https://doi.org/10.5281/zenodo.20819940}
+}
+```
+
 ## License
+
 Apache License 2.0 · © 2026 Bilal el Issaoui
