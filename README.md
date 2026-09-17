@@ -117,6 +117,23 @@ Academia: https://www.academia.edu/resource/work/169064537
 }
 ```
 
+---
+
+## Companion work
+
+This pattern is part of a series on deterministic representation and decomposition systems. The companion paper examines the opposite extreme: a system built on a single global modulus versus a system built on a chain of local moduli, and why a clock can never have a Diophantine structure.
+
+**The Hidden Mathematics Behind the Clock: The Clock [3600, 60, 1] and the (25, 12) System**
+
+- Repository: https://github.com/A19dammer91/the-exact-algebraic-condition-for-clock-behaviour
+- Interactive web demo (English and Dutch): https://a19dammer91.github.io/the-exact-algebraic-condition-for-clock-behaviour/
+
+Where D³ shows how one amount splits across five structural layers with a single anchor value in O(1), the clock paper shows why a time structure deliberately chooses the opposite: no global anchor, only a cascade of local moduli, so that every instant has exactly one representation.
+
+Read together, the two papers frame a single question: what does it mean for a representation system to be complete, and what does it cost to give up multiplicity in exchange for uniqueness?
+
+---
+
 ## License
 
 Apache License 2.0 · © 2026 Bilal el Issaoui
