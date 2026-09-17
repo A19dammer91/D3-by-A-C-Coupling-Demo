@@ -136,4 +136,6 @@ Read together, the two papers frame a single question: what does it mean for a r
 
 ## License
 
-Apache License 2.0 · © 2026 Bilal el Issaoui
+Released under Creative Commons Attribution NonCommercial ShareAlike 4.0 (CC BY NC SA 4.0).
+
+Commercial use is not covered by this license.
